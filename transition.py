@@ -1,12 +1,14 @@
-def transition(delta, S):
+import numpy as np
+
+def transition(S, delta):
     """
     construct transition matrix for the Rust model with empirical probabilities
     of the three possible state transitions (delta = 0, 1, or 2)
 
     inputs:
-        delta, vector of mileage increments
         S, number of possible states
-
+        delta, vector of mileage increments
+        
     output:
         P, S x S matrix with entries [i, j] containing the probability of 
             transitioning to state j from state i

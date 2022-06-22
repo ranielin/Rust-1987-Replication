@@ -19,8 +19,8 @@ def compute_EV(tol, theta, beta, P, x):
             state in x at the given parameters theta
     """
 
-    theta_1_1 = theta[0]
-    RC = theta[1]
+    theta_1_1 = theta[0] # linear cost parameter
+    RC = theta[1] # replacement cost
 
     def B(EV):
         """
@@ -35,11 +35,13 @@ def compute_EV(tol, theta, beta, P, x):
         output:
             B, length S vector encoding the value B(EV)
         """
-
-        u_0 = -0.001 * theta_1_1 * x # current utility from continuing
+        
+        # current utility from continuing (without the error term)
+        u_0 = -0.001 * theta_1_1 * x 
         i_0 = u_0 + beta * EV
         
-        u_1 = -0.001 * theta_1_1 * x[0] - RC # current utility from replacing
+        # current utility from replacing (without the error term)
+        u_1 = -0.001 * theta_1_1 * x[0] - RC 
         i_1 = u_1 + beta * EV[0]
 
         # subtract and re-add EV to avoid overflow issues

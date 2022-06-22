@@ -29,7 +29,7 @@ For given values of the utility function parameters ![equation](https://latex.co
 
 ![equation](https://latex.codecogs.com/svg.image?EV^{new}(x,0)&space;=&space;P&space;[\sum_{y}&space;\log&space;(\sum_{j&space;=&space;0,&space;1}&space;\exp(\bar&space;u(y,&space;j;&space;\theta_1)&space;&plus;&space;\beta&space;EV^{old}(x,0)))]) 
 
-is applied with initial guess ![equation](https://latex.codecogs.com/svg.image?EV(x, 0)&space;=&space;0) for all ![equation](https://latex.codecogs.com/svg.image?x), where
+is applied with initial guess ![equation](https://latex.codecogs.com/svg.image?EV(x,&space;0)&space;=&space;0) for all ![equation](https://latex.codecogs.com/svg.image?x), where
 - ![equation](https://latex.codecogs.com/svg.image?EV(x,0)) is a length ![equation](https://latex.codecogs.com/svg.image?S) vector denoting the expected value function of choice ![equation](https://latex.codecogs.com/svg.image?i&space;=&space;0) at each state ![equation](https://latex.codecogs.com/svg.image?x)
 - ![equation](https://latex.codecogs.com/svg.image?\bar&space;u(y,&space;j;&space;\theta_1)) is a length ![equation](https://latex.codecogs.com/svg.image?S) vector denoting the current-period utility (minus the structural error) of making choice ![equation](https://latex.codecogs.com/svg.image?j) at each state ![equation](https://latex.codecogs.com/svg.image?y)
 - ![equation](https://latex.codecogs.com/svg.image?P) is an ![equation](https://latex.codecogs.com/svg.image?S&space;\times&space;S) transition matrix

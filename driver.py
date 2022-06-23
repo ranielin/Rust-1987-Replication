@@ -28,7 +28,7 @@ p_ll = scipy.optimize.minimize(objective, theta_1_start, args = (
         'maxiter': 1000})
 
 # write parameter estimates to .csv
-theta = np.insert(p_ll.x, [2, 2], [P[0, 0], P[1, 1]])
+theta = np.insert(p_ll.x, [2, 2], [P[0, 0], P[0, 1]])
 theta_df = pd.DataFrame(theta)
 theta_df.insert(0, "var", [
     "theta_1_1", "RC", "theta_3_0", "theta_3_1"])

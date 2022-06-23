@@ -26,14 +26,8 @@ def objective(theta, x, P, beta, tol, X, I):
     Pr = choice_prob(x, theta, beta, EV)
 
     # compute partial likelihood function
-    # LL = 0
-    # for x_t, i_t in zip(X, I):
-    #    LL += np.log(Pr[x_t, i_t])
-
     LL = 0
     for x_t, i_t in zip(X, I):
-        LL += np.log(Pr[int(x_t), int(i_t)])
+       LL += np.log(Pr[x_t, i_t])
 
-    print("params:", theta)
-    print("LL:", LL)
     return -LL

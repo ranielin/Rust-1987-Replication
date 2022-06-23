@@ -27,7 +27,8 @@ def choice_prob(x, theta, beta, EV):
     u_1 = u(x, 1, theta)
     v_1 = u_1 + beta * EV[0]
 
-    # subract max(EV) from exponents to avoid overflow issues
+    # dynamic logit choice probabilities
+    # subract max(EV) from exponents to avoid overflow
     Pr_0 = np.exp(v_0 - max(EV)) / (np.exp(v_0 - max(EV)) + np.exp(v_1 - max(EV)))
     Pr_1 = 1 - Pr_0
 

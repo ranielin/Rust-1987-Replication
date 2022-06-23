@@ -2,9 +2,9 @@ import numpy as np
 
 def compute_EV(tol, theta, beta, P, x):
     """
-    compute expected value (EV) function for given values of
-    model parameters by solving for the fixed point of the
-    contraction mapping problem
+    solve the single-agent DP problem, computing the expected value (EV)
+    function for given values of model parameters by finding the fixed point
+    of the Bellman operator contraction
 
     inputs:
         tol, tolerance at which to stop the iteration
@@ -25,9 +25,6 @@ def compute_EV(tol, theta, beta, P, x):
     def B(EV):
         """
         Bellman operator to iterate on
-        cost function: c(x, theta_1_1) = -0.001 * theta_1_1 * x
-        utility functions: u(x, 0, theta_1_1) = c(x, theta_1_1),
-        u(x, 1, theta_1_1) = c(x[0], theta_1_1) - RC
 
         inputs:
             EV, length S vector encoding the expected value function

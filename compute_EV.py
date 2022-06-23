@@ -36,7 +36,7 @@ def compute_EV(x, P, theta, beta, tol):
         v_0 = u_0 + beta * EV
         
         # utility and value from replacing (without the error term)
-        u_1 = u(x[0], 1, theta)
+        u_1 = u(x, 1, theta)
         v_1 = u_1 + beta * EV[0]
 
         # subtract and re-add EV to avoid overflow issues
@@ -72,7 +72,20 @@ def u(x, i, theta):
     theta_1_1 = theta[0] # linear cost parameter
     RC = theta[1] # replacement cost
 
+    def c(x, theta_1_1):
+        """
+        compute cost function
+
+        inputs:
+            x, state variable
+            theta_1_1, linear cost parameter
+        
+        output:
+            c, cost
+        """
+        return -0.001 * theta_1_1 * x
+
     if i == 0:
-        return -0.001 * theta_1_1 * x 
+        return c(x, theta_1_1)
     elif i == 1:
-        return -0.001 * theta_1_1 * x - RC 
+        return c(0, theta_1_1) - RC 

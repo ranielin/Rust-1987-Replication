@@ -26,15 +26,15 @@ clean_dat <- function(df){
   # state variable: mileage since replacement, discretized increments of 5000 mi.
   x <- df - t(t(rep_1) * t(rep_2 == 0) * od_rep_1) -
     t(t(rep_2) * t(rep_1 == 0) * od_rep_2)
-  x <- ceiling(x / 5000)
+  x <- floor(x / 5000)
     
   # decision variable: engine replacement, i.e., mileage is above rep_1 or rep_2
-  # in the current period but not in the prior period
-  i <- ifelse(rbind(0, rep_1[2:nrow(rep_1), ] - rep_1[1:nrow(rep_1) - 1, ]) + 
-    rbind(0, rep_2[2:nrow(rep_2), ] - rep_2[1:nrow(rep_2) - 1, ]) > 0, 1, 0)
+  # in the next period but not the current period
+  i <- ifelse((rbind(rep_1[2:nrow(rep_1), ] - rep_1[1:nrow(rep_1) - 1, ], 0) > 0) |  
+                (rbind(rep_2[2:nrow(rep_2), ] - rep_2[1:nrow(rep_2) - 1, ], 0) > 0), 1, 0)
   
   # delta: mileage increment from prior period, accounting for engine replacement
-  delta <- rbind(0, x[2:nrow(x), ] - x[1:nrow(x) - 1, ] + x[1:nrow(x) - 1, ] * i[2:nrow(x), ]) 
+  delta <- rbind(0, x[2:nrow(x), ] - x[1:nrow(x) - 1, ] + x[1:nrow(x) - 1, ] * i[1:nrow(x) - 1, ]) 
   
   # return data frame with columns x (state), i (decision), and delta (increment)
   return(tibble(x = matrix(x, ncol = 1), i = matrix(i, ncol = 1), delta = matrix(delta, ncol = 1)))

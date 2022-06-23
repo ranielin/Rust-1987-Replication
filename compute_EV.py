@@ -36,16 +36,16 @@ def compute_EV(tol, theta, beta, P, x):
             B, length S vector encoding the value B(EV)
         """
         
-        # current utility from continuing (without the error term)
+        # utility and value from continuing (without the error term)
         u_0 = u(theta_1_1, RC, x, 0)
-        i_0 = u_0 + beta * EV
+        v_0 = u_0 + beta * EV
         
-        # current utility from replacing (without the error term)
+        # utility and value from replacing (without the error term)
         u_1 = u(theta_1_1, RC, x[0], 1)
-        i_1 = u_1 + beta * EV[0]
+        v_1 = u_1 + beta * EV[0]
 
         # subtract and re-add EV to avoid overflow issues
-        G = np.exp(i_0 - EV) + np.exp(i_1 - EV) # social surplus function
+        G = np.exp(v_0 - EV) + np.exp(v_1 - EV) # social surplus function
         B = P @ (np.log(G) + EV) # Bellman operator
 
         return B

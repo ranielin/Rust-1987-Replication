@@ -19,19 +19,19 @@ The state transition density ![equation](https://latex.codecogs.com/svg.image?p(
 - ![equation](https://latex.codecogs.com/svg.image?\theta_3_0), the probability that ![equation](https://latex.codecogs.com/svg.image?x_{t&plus;1}&space;-&space;x_{t}) is equal to zero
 - ![equation](https://latex.codecogs.com/svg.image?\theta_3_1), the probability that ![equation](https://latex.codecogs.com/svg.image?x_{t&plus;1}&space;-&space;x_{t}) is equal to one
 
-These paremeters are empirically estimated directly from the data as ![equation](https://latex.codecogs.com/svg.image?\hat\theta_{3j}&space;=&space;\text{freq}(x_{t&space;&plus;&space;1}&space;-&space;x_t&space;=&space;j)) for ![equation](https://latex.codecogs.com/svg.image?j&space;=&space;1,&space;2).
+These paremeters are empirically estimated directly from the data as ![equation](https://latex.codecogs.com/svg.image?\hat\theta_{3j}&space;=&space;\text{freq}(x_{t&space;&plus;&space;1}&space;-&space;x_t&space;=&space;j)) for ![equation](https://latex.codecogs.com/svg.image?j&space;=&space;0,&space;1).
 
 The transition matrix ![equation](https://latex.codecogs.com/svg.image?P) is an ![equation](https://latex.codecogs.com/svg.image?S&space;\times&space;S) matrix whose ![equation](https://latex.codecogs.com/svg.image?[i,&space;j])'th entries denote the estimated probabilities of transitioning from state ![equation](https://latex.codecogs.com/svg.image?i) to state ![equation](https://latex.codecogs.com/svg.image?j), where ![equation](https://latex.codecogs.com/svg.image?S&space;=&space;90) denotes the size of the state space.
 
 ### Expected Value Function Contraction
 
-For given values of the utility function parameters ![equation](https://latex.codecogs.com/svg.image?\theta_{1}) and discount rate ![equation](https://latex.codecogs.com/svg.image?\beta), the iterative contraction mapping
+For given values of the utility function parameters ![equation](https://latex.codecogs.com/svg.image?\theta) and discount rate ![equation](https://latex.codecogs.com/svg.image?\beta), the iterative contraction mapping
 
-![equation](https://latex.codecogs.com/svg.image?EV^{new}(x,0)&space;=&space;P&space;[\sum_{y}&space;\log&space;(\sum_{j&space;=&space;0,&space;1}&space;\exp(\bar&space;u(y,&space;j;&space;\theta_1)&space;&plus;&space;\beta&space;EV^{old}(x,0)))]) 
+![equation](https://latex.codecogs.com/svg.image?EV^{new}(x,0)&space;=&space;P&space;[\sum_{y}&space;\log&space;(\sum_{j&space;=&space;0,&space;1}&space;\exp(\bar&space;u(y,&space;j;&space;\theta)&space;&plus;&space;\beta&space;EV^{old}(x,0)))]) 
 
 is applied with initial guess ![equation](https://latex.codecogs.com/svg.image?EV(x,&space;0)&space;=&space;0) for all ![equation](https://latex.codecogs.com/svg.image?x), where
 - ![equation](https://latex.codecogs.com/svg.image?EV(x,0)) is a length ![equation](https://latex.codecogs.com/svg.image?S) vector denoting the expected value function of choice ![equation](https://latex.codecogs.com/svg.image?i&space;=&space;0) at each state ![equation](https://latex.codecogs.com/svg.image?x)
-- ![equation](https://latex.codecogs.com/svg.image?\bar&space;u(y,&space;j;&space;\theta_1)) is a length ![equation](https://latex.codecogs.com/svg.image?S) vector denoting the current-period utility (minus the structural error) of making choice ![equation](https://latex.codecogs.com/svg.image?j) at each state ![equation](https://latex.codecogs.com/svg.image?y)
+- ![equation](https://latex.codecogs.com/svg.image?\bar&space;u(y,&space;j;&space;\theta)) is a length ![equation](https://latex.codecogs.com/svg.image?S) vector denoting the current-period utility (minus the structural error) of making choice ![equation](https://latex.codecogs.com/svg.image?j) at each state ![equation](https://latex.codecogs.com/svg.image?y)
 - ![equation](https://latex.codecogs.com/svg.image?P) is an ![equation](https://latex.codecogs.com/svg.image?S&space;\times&space;S) transition matrix
 
 The iteration proceeds until ![equation](https://latex.codecogs.com/svg.image?\left\|&space;EV^{new}(x,0)&space;-&space;EV^{old}(x,0)\right\|&space;<&space;10^{-6}). Note that at any state, the expected value function evaluated for the choice ![equation](https://latex.codecogs.com/svg.image?i&space;=&space;1) is equal to the expected value function evaluated for the choice ![equation](https://latex.codecogs.com/svg.image?i&space;=&space;0) at state ![equation](https://latex.codecogs.com/svg.image?x&space;=&space;0), so the expected value function can be represented as an ![equation](https://latex.codecogs.com/svg.image?S&space;\times&space;1) vector rather than an ![equation](https://latex.codecogs.com/svg.image?S&space;\times&space;2) matrix.

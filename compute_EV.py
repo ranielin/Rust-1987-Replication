@@ -37,11 +37,11 @@ def compute_EV(tol, theta, beta, P, x):
         """
         
         # current utility from continuing (without the error term)
-        u_0 = -0.001 * theta_1_1 * x 
+        u_0 = u(theta_1_1, RC, x, 0)
         i_0 = u_0 + beta * EV
         
         # current utility from replacing (without the error term)
-        u_1 = -0.001 * theta_1_1 * x[0] - RC 
+        u_1 = u(theta_1_1, RC, x[0], 1)
         i_1 = u_1 + beta * EV[0]
 
         # subtract and re-add EV to avoid overflow issues
@@ -59,3 +59,22 @@ def compute_EV(tol, theta, beta, P, x):
         error = np.max(np.abs(EV - EV_old))
 
     return EV
+
+def u(theta_1_1, RC, x, i):
+    """
+    compute current-period utility, less the structural error
+
+    inputs:
+        theta_1_1, linear cost function parameter
+        RC, replacement cost
+        x, state variable
+        i, decision variable
+    
+    output:
+        u, utility from choosing action i in state x
+    """
+
+    if i == 0:
+        return -0.001 * theta_1_1 * x 
+    elif i == 1:
+        return -0.001 * theta_1_1 * x - RC 

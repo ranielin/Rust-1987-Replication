@@ -1,8 +1,8 @@
 # Rust (1987) Replication
 
-Replication of the optimal bus engine replacement problem in [Rust (1987)](https://www.econometricsociety.org/publications/econometrica/1987/09/01/optimal-replacement-gmc-bus-engines-empirical-model-harold). The code provided replicates the point estimates of the model parameters for the simple linear cost function specification (first four rows of the "Groups 1, 2, 3, 4" column of Table IX) in Rust (1987).
+Replication of the single-agent dynamic programming problem of optimal bus engine replacement in [Rust (1987)](https://www.econometricsociety.org/publications/econometrica/1987/09/01/optimal-replacement-gmc-bus-engines-empirical-model-harold). The code provided replicates the point estimates of the model parameters for the simple linear cost function specification (first four rows of the "Groups 1, 2, 3, 4" column of Table IX) in Rust (1987).
 
-This replication estimates the model using Rust's Nested Fixed Point Algorithm (NFXP), a full-solution method that is computationally burdensome. For alternative estimation methods and/or extensions of the single-agent Rust model to models of dynamic games, the following resources may be helpful:
+This replication estimates the model using Rust's Nested Fixed Point Algorithm (NFXP), a full-solution method that is computationally burdensome: the DP problem must be solved for each value of model parameters that is searched over. For alternative estimation methods and/or extensions of the single-agent Rust model to models of dynamic games, the following resources may be helpful:
 * [Aguirregabiria and Mira (2010)](http://aguirregabiria.net/wpapers/survey_annalsje.pdf) for a comprehensive overview of several estimation methods for dynamic discrete choice models
 * [Arcidiacono and Ellickson (2011)](https://www.annualreviews.org/doi/abs/10.1146/annurev-economics-111809-125038) for a practical guide to conditional choice probability (CCP) estimation methods
 * [Aguirregabiria, Collard-Wexler, and Ryan (2021)](https://arxiv.org/abs/2109.01725) for multiple-agent dynamic game models

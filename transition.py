@@ -26,7 +26,7 @@ def transition(S, delta):
     P[np.arange(0, S-1), np.arange(1, S)] = theta_3_1
     P[np.arange(0, S-2), np.arange(2, S)] = theta_3_2
 
-    # adjust last two rows (absorbing states)
+    # adjust absorbing states to sum to 1
     P[S-1, S-1] = 1
     P[S-2, S-1] = 1 - theta_3_0
 

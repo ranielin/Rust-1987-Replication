@@ -22,4 +22,4 @@ P = transition(S, delta)
 # tol = 1e-6
 # theta = np.array((3.6, 10))
 # beta = 0.9999
-# EV = compute_EV(tol, theta, beta, P, x)
+# EV = compute_EV(x, P, theta, beta, tol)

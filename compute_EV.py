@@ -1,26 +1,24 @@
 import numpy as np
 
-def compute_EV(tol, theta, beta, P, x):
+def compute_EV(x, P, theta, beta, tol):
     """
     solve the single-agent DP problem, computing the expected value (EV)
     function for given values of model parameters by finding the fixed point
     of the Bellman operator contraction
 
     inputs:
-        tol, tolerance at which to stop the iteration
-        theta, vector of parameters associated with the utility/cost
-            function
-        beta, discount factor
-        P, S x S transition matrix
         x, state space vector
+        P, S x S transition matrix
+        theta, vector of parameters associated with the utility/cost
+            functions
+        beta, discount factor
+        tol, tolerance at which to stop the iteration
+
 
     output:
         EV, length S vector encoding the expected value function for each
             state in x at the given parameters theta
     """
-
-    theta_1_1 = theta[0] # linear cost parameter
-    RC = theta[1] # replacement cost
 
     def B(EV):
         """
@@ -34,11 +32,11 @@ def compute_EV(tol, theta, beta, P, x):
         """
         
         # utility and value from continuing (without the error term)
-        u_0 = u(theta_1_1, RC, x, 0)
+        u_0 = u(x, 0, theta)
         v_0 = u_0 + beta * EV
         
         # utility and value from replacing (without the error term)
-        u_1 = u(theta_1_1, RC, x[0], 1)
+        u_1 = u(x[0], 1, theta)
         v_1 = u_1 + beta * EV[0]
 
         # subtract and re-add EV to avoid overflow issues
@@ -57,19 +55,22 @@ def compute_EV(tol, theta, beta, P, x):
 
     return EV
 
-def u(theta_1_1, RC, x, i):
+def u(x, i, theta):
     """
     compute current-period utility, less the structural error
 
     inputs:
-        theta_1_1, linear cost function parameter
-        RC, replacement cost
         x, state variable
         i, decision variable
+        theta, vector of parameters associated with the utility/cost
+            functions
     
     output:
         u, utility from choosing action i in state x
     """
+
+    theta_1_1 = theta[0] # linear cost parameter
+    RC = theta[1] # replacement cost
 
     if i == 0:
         return -0.001 * theta_1_1 * x 

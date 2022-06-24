@@ -16,8 +16,8 @@ Following Rust (1987), the mileage state variable ![equation](https://latex.code
 ### Estimation of Transition Matrix
 
 The state transition density ![equation](https://latex.codecogs.com/svg.image?p(x_{t&plus;1}&space;|&space;x_t,&space;i_t,&space;\theta_3)) is characterized by two parameters:
-- ![equation](https://latex.codecogs.com/svg.image?\theta_3_0), the probability that ![equation](https://latex.codecogs.com/svg.image?x_{t&plus;1}&space;-&space;x_{t}) is equal to zero
-- ![equation](https://latex.codecogs.com/svg.image?\theta_3_1), the probability that ![equation](https://latex.codecogs.com/svg.image?x_{t&plus;1}&space;-&space;x_{t}) is equal to one
+- ![equation](https://latex.codecogs.com/svg.image?\theta_3_0), the probability that ![equation](https://latex.codecogs.com/svg.image?x_{t&plus;1}&space;-&space;x_{t}) is equal to zero given ![equation](https://latex.codecogs.com/svg.image?i_t&space;=&space;0)
+- ![equation](https://latex.codecogs.com/svg.image?\theta_3_1), the probability that ![equation](https://latex.codecogs.com/svg.image?x_{t&plus;1}&space;-&space;x_{t}) is equal to one given ![equation](https://latex.codecogs.com/svg.image?i_t&space;=&space;1)
 
 These paremeters are empirically estimated directly from the data as ![equation](https://latex.codecogs.com/svg.image?\hat\theta_{3j}&space;=&space;\text{freq}(x_{t&space;&plus;&space;1}&space;-&space;x_t&space;=&space;j)) for ![equation](https://latex.codecogs.com/svg.image?j&space;=&space;0,&space;1).
 

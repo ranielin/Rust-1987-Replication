@@ -7,6 +7,8 @@ This replication estimates the model using Rust's Nested Fixed Point Algorithm (
 * [Arcidiacono and Ellickson (2011)](https://www.annualreviews.org/doi/abs/10.1146/annurev-economics-111809-125038) for a practical guide to conditional choice probability (CCP) estimation methods
 * [Aguirregabiria, Collard-Wexler, and Ryan (2021)](https://arxiv.org/abs/2109.01725) for multiple-agent dynamic game models
 
+A walkthrough of this replication can be found [here](https://ranielin.github.io/files/rust.html).
+
 ### Data
 
 Data on bus engine replacement schedules and mileage is obtained from the ["companion web page"](http://individual.utoronto.ca/vaguirre/wpapers/program_code_survey_joe_2008.html) to Aguirregabiria and Mira (2010). Data from bus groups 1 through 4 are combined, which correspond to data files "g870.asc", "rt50.asc", "t8h203.asc", and "a530875.asc", respectively.

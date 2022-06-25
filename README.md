@@ -21,7 +21,7 @@ The state transition density ![equation](https://latex.codecogs.com/svg.image?p(
 
 These paremeters are empirically estimated directly from the data as ![equation](https://latex.codecogs.com/svg.image?\hat\theta_{3j}&space;=&space;\text{freq}(x_{t&space;&plus;&space;1}&space;-&space;x_t&space;=&space;j)) for ![equation](https://latex.codecogs.com/svg.image?j&space;=&space;0,&space;1).
 
-The transition matrix ![equation](https://latex.codecogs.com/svg.image?P) is an ![equation](https://latex.codecogs.com/svg.image?S&space;\times&space;S) matrix whose ![equation](https://latex.codecogs.com/svg.image?[i,&space;j])'th entries denote the estimated probabilities of transitioning from state ![equation](https://latex.codecogs.com/svg.image?i) to state ![equation](https://latex.codecogs.com/svg.image?j), where ![equation](https://latex.codecogs.com/svg.image?S&space;=&space;90) denotes the size of the state space.
+The transition matrix ![equation](https://latex.codecogs.com/svg.image?P) is an ![equation](https://latex.codecogs.com/svg.image?S&space;\times&space;S) matrix whose ![equation](https://latex.codecogs.com/svg.image?[i,&space;j])'th entries denote the estimated probabilities of transitioning from state ![equation](https://latex.codecogs.com/svg.image?i) to state ![equation](https://latex.codecogs.com/svg.image?j), conditional on the decision ![equation](https://latex.codecogs.com/svg.image?i&space;=&space;1), where ![equation](https://latex.codecogs.com/svg.image?S&space;=&space;90) denotes the size of the state space.
 
 ### Expected Value Function Contraction
 

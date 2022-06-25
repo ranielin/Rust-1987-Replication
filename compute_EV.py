@@ -14,7 +14,6 @@ def compute_EV(x, P, theta, beta, tol):
         beta, discount factor
         tol, tolerance at which to stop the iteration
 
-
     output:
         EV, length S vector encoding the expected value function for each
             state in x at the given parameters theta
@@ -24,7 +23,7 @@ def compute_EV(x, P, theta, beta, tol):
         """
         Bellman operator to iterate on
 
-        inputs:
+        input:
             EV, length S vector encoding the expected value function
 
         output:
